@@ -8,10 +8,10 @@ def nyc_pigeon_organizer(data)
       
         count += 1 
         end 
-     end 
+      end
     end 
     organized_data
-  end
+end
 
 
 def remove_strawberry(contacts)
