@@ -1,14 +1,17 @@
 def nyc_pigeon_organizer(data)
-  organized_data = {}
-  data.each.each do |pigeon_attributes, attributes_hash|
-      if attributes_hash == true 
-      attributes_hash.each do |attributes, name|
-        #condition
-        organized_data << "#{name} !!!"
-      
-        count += 1 
+  
+  final_hash = data.each_with_object({}) do |(key, value), arr|
+    
+    value.each do |inner_k, names|
+      names.each do |name|
+        if !arr[name]
+          arr[name] = {}
         end 
-      end
+        if !arr[name][key]
+          !arr[name][key] = []
+        end 
+        arr[name][key].push(inner_k.to_s)
+      end 
     end 
-    organized_data
+  end 
 end
